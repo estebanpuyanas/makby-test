@@ -1,57 +1,10 @@
-
-
-
-
-def create_rectangle(x1: int, x2: int, y1: int, y2: int) -> list:
-
-  """
-  According to the clipper docs:
-  Simple polygons are formed by single closed paths that don't intersect. Paths themselves are closed when their ends join 
-  with an implicit line segment between the first and last vertices. Closed path segments can be thought of as edges.
-  """
-
-  return [(x1, y1), 
-          (x2, y1), 
-          (x2, y2), 
-          (x1, y2)]
-
 """
-This function will create a 90 degree triangle
+Exercise 1 shapes:
+1. Regular rectangle.
+2. Slanted quadrilateral.
+3. Triangle.
 """
-def create_right_triangle(x1: int, x2: int, y1: int) -> list:
-    return [
-        (x1, y1),
-        (x2, y1),
-        (x1, x2),
-    ]
 
-def create_equilateral_triangle(x1: int, x2: int, y1: int) -> list:
-
-  side_length = x2 - x1
-  triangle_height = side_length * ((np.sqrt(3)) / 2)
-  mid_point_x = (x1 + x2) / 2
-
-  return [
-    (x1, y1),
-    (x2, y1), 
-    (mid_point_x, y1 + triangle_height)
-  ]
-
-def create_circle(radius: int, num_vertices: int) -> list:
-  """
-  To create a circle, we can use the parametric equations of a circle:
-  x = r * cos(theta)
-  y = r * sin(theta)
-
-  where r is the radius and theta is the angle that ranges from 0 to 2*pi.
-
-  We can generate num_vertices points around the circle by varying theta from 0 to 2*pi in equal increments.
-  """
-  vertices = []
-  for i in range(num_vertices):
-    theta = (2 * np.pi / num_vertices) * i
-    x = radius * np.cos(theta)
-    y = radius * np.sin(theta)
-    vertices.append((x, y))
-  
-  return vertices
+RECT1    = [[5, 12],    [53, 12],     [53, 24],    [5, 24]]
+RECT2    = [[16, 29],   [40.213, -9], [54.483, -1],[29, 37]]  
+TRIANGLE = [[8, 4],     [43, 4],      [27, 21]]

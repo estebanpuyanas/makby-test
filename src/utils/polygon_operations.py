@@ -1,4 +1,11 @@
 import pyclipper
+from utils.clipper_helpers import (
+   pc, 
+   _ensure_paths,
+   _scale_from_clipper,
+   _scale_to_clipper,
+   _run,
+)
 
 def compute_polygon_intersection(poly1: list, poly2: list) -> list:
   pc.Clear()
@@ -34,3 +41,7 @@ def compute_multi_poly_ops(start_poly: list, ops: list) -> list:
     result = op(result, poly)
 
   return result
+
+"""Clip open polylines (hatch lines) against a closed polygon."""
+def clip_open_paths(open_paths: list, clip_poly: list) -> list:
+    return _run(open_paths, _ensure_paths(clip_poly), pyclipper.CT_INTERSECTION, subject_closed=False)
