@@ -7,7 +7,7 @@ The description of the geometries is the following:
 
 - "Rectangle 1":[[5, 12], [53, 12],[53, 24],[5, 24]]
 - "Rectangle 2":[[16, 29],[40.213, -9],[54.483, -1],[29, 37]]
-- "Triangle":[[8, 4],[43, 4],[27, 21]
+- "Triangle":[[8, 4],[43, 4],[27, 21]]
 
 The pattern assigned to each part should be:
 
@@ -28,7 +28,7 @@ Please send back your code as your response to this test.
 # Exercise 2
 
 A rectangular template with dimensions W x H is defined in a 2D cartesian plane where 0 <x<W and 0 < y < H.
-You are required to perform t **wo distinct spatial mappings** to transform a rectilinear pattern etched on this
+You are required to perform **two distinct spatial mappings** to transform a rectilinear pattern etched on this
 template:
 
 - Part A (2D Circular Mapping): Derive the coordinate transformation equations to map the rectangle
