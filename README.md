@@ -7,8 +7,11 @@ This is my solution to the software engineering exercises for Makby's software e
 > [!NOTE]
 > Before setting up the dependencies for the project please make sure you have the following base dependencies installed:
 > [pip - A python package manager](https://pypi.org/project/pip/)
+
 > [pyenv - A python version manager](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
+
 > [make - a UNIX program compilation utility](https://www.gnu.org/software/make/manual/make.html) **this one is optional**
+
 > [Brew - a package manager for MacOS](https://brew.sh/) **Optional and only for MacOS users**
 
 **Additionally, please note that the guide assumes that the user is in a Linux/UNIX enviornment like any Linux distribution such as Ubuntu, Fedora, and ArchLinux, or MacOS. If the user is using Windows, the structure of the commands below will change, and certain dependencies, like pyenv, [will require different installations](https://github.com/pyenv/pyenv?tab=readme-ov-file#windows).**
