@@ -1,4 +1,5 @@
 import pyclipper
+
 from utils.clipper_helpers import (
    pc, 
    _ensure_paths,

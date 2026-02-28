@@ -1,5 +1,8 @@
-
-
+"""
+This is a tool to visualize raw polygon outlines in matplotlib.pyplot
+subplots. While not used in official solutions, it can be helpful for 
+debugging and understanding the result of polygon operations.
+"""
 import matplotlib.pyplot as plt
 import numpy as np
 

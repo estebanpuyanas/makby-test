@@ -4,7 +4,6 @@ Converts toolpath segments (lists of (x, y) points) into G-code moves.
 
 Coordinate unit assumption: mm.
 """
-
 def _header(feed_rate: int) -> list[str]:
     return [
         "G21       ; units: mm",
