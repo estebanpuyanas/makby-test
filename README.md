@@ -6,6 +6,7 @@ This is my solution to the software engineering exercises for Makby's software e
 
 > [!NOTE]
 > Before setting up the dependencies for the project please make sure you have the following base dependencies installed:
+
 > [pip - A python package manager](https://pypi.org/project/pip/)
 
 > [pyenv - A python version manager](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
