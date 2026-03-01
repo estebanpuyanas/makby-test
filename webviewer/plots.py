@@ -18,7 +18,6 @@ import numpy as np
 
 def gen_ex1_plot() -> bytes:
     from utils.shapes import RECT1, RECT2, TRIANGLE
-    
     from utils.polygon_operations import (
         compute_polygon_intersection,
         compute_polygon_difference,

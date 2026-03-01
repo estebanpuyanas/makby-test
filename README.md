@@ -4,7 +4,7 @@ This is my solution to the software engineering exercises for Makby's software e
 
 ## Setting up the environment:
 
-**TL;DR <br/>1. Set project Python version to 3.12.12.<br/> 2. Create virtual enviornment with Python's `python3 -m venv .venv`.<br/> 3.Activate virtual enviornment with `source .venv/bin/activate`.<br/> 4. Install dependencies via `pip install -r requirements.txt`<br> 5. Run the solution files for exercises 1 or 2 with `python3 -m src.exerciseN.solution`, just replace exerciseN with exercise1 or exercise2**
+**TL;DR <br/>1. Set project Python version to 3.12.12.<br/> 2. Create virtual enviornment with Python's `python3 -m venv .venv`.<br/> 3.Activate virtual enviornment with `source .venv/bin/activate`.<br/> 4. Install dependencies via `pip install -r requirements.txt`<br> 5. Run the solution files for exercises 1 or 2 with `python3 -m src.exerciseN.solution`, just replace exerciseN with exercise1 or exercise2.<br/> 6. _(Optional)_ Launch the web viewer with `python3 webviewer/app.py` and open [http://localhost:5000](http://localhost:5000) to browse all exercise results interactively.**
 
 > [!NOTE]
 > Before setting up the dependencies for the project please make sure you have the following base dependencies installed: <br/>
@@ -87,6 +87,39 @@ python3 -m src.exercise1.solution # for exercise 1
 python3 -m src.exercise2.solution # for exercise 2
 ```
 
+## Viewing Results (Web Viewer):
+
+The repository includes a small Flask-based web viewer that renders the results of all three exercises in a local browser. No separate display server needed!
+
+### What it shows:
+
+- **Exercise 1** — Interactive plot of the fill-pattern regions + a collapsible G-code viewer with a download button.
+- **Exercise 2** — Plot of the flat template, 2D ring, and 3D cylinder mappings.
+- **Exercise 3** — Rendered Markdown document with an option to open a print-friendly view and save it as a PDF.
+
+All plots support click-to-fullscreen (or the dedicated **⛶ Full screen** button) and can be opened in a new tab for native zoom/pan.
+
+### Running the web viewer:
+
+#### With `make`:
+
+```make
+make webviewer
+```
+
+#### Without `make`:
+
+Make sure the virtual environment is activated, then run:
+
+```sh
+python3 webviewer/app.py
+```
+
+Then open [http://localhost:5000](http://localhost:5000) in your browser. Press `Ctrl+C` in the terminal to stop the server.
+
+> [!NOTE]
+> The first load of an exercise plot may take a few seconds as it is generated on demand. Subsequent loads are fast because the browser caches the image.
+
 ## Sources:
 
 ### For understanding GCode commands/generation:
@@ -98,6 +131,4 @@ python3 -m src.exercise2.solution # for exercise 2
 ## Stuff to work on (besides the exercises):
 
 1. Generating good pydocs / readmes for each function and file/folders
-2. Makefile to setup and get the project running.
-3. Basic html website to visualize stuff (idk if i will need streamlit)
-4. Tests (?)
+2. Tests (?)
