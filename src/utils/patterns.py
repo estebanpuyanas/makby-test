@@ -8,29 +8,49 @@ from utils.clipper_helpers import (
    _scale_to_clipper,
 )
 
-"""
-Since hatcg lines are "diagonal" parallel lines, its easiest if we rotate the polygon, 
-draw horizontal lines, and rotate back.
-"""
 def rotate_poly_points(pt: int, angle_radians: int, origin=(0,0)) -> int:
+  """Rotate a single 2D point about an origin by a given angle.
+
+  Args:
+      pt: The point to rotate as an (x, y) tuple.
+      angle_radians: Rotation angle in radians (counter-clockwise positive).
+      origin: The centre of rotation as an (x, y) tuple. Defaults to (0, 0).
+
+  Returns:
+      The rotated point as an (x, y) tuple.
+  """
   x, y = pt
   ox, oy = origin
   dx, dy = x - ox, y - oy
   c, s = math.cos(angle_radians), math.sin(angle_radians)
   return (ox + dx * c - dy * s, oy + dx * s + dy * c)
 
-"""
-Since a path is just a list of points, we use the function above to rotate each point in a path,
-and then apply that to each path in a list of paths.
-"""
 def rotate_poly_paths(paths: list, angle_radians: int, origin=(0,0)) -> list:
+  """Rotate every point in a list of polylines about an origin.
+
+  Applies ``rotate_poly_points`` to each point in each polyline.
+
+  Args:
+      paths: A list of polylines, where each polyline is a list of
+          (x, y) tuples.
+      angle_radians: Rotation angle in radians (counter-clockwise positive).
+      origin: The centre of rotation as an (x, y) tuple. Defaults to (0, 0).
+
+  Returns:
+      A new list of polylines with all points rotated by the given angle.
+  """
   return [[rotate_poly_points(p, angle_radians, origin) for p in path] for path in paths]
 
-"""
-The filling of a pattern must be done within the area of the polygon, 
-for that we can just compute the intersection of the pattern with the polygon, and then visualize the result.
-"""
-def compute_path_bounding_box(paths: list)-> tuple:
+def compute_path_bounding_box(paths: list) -> tuple:
+  """Compute the axis-aligned bounding box of a collection of polylines.
+
+  Args:
+      paths: A list of polylines, where each polyline is a list of
+          (x, y) tuples.
+
+  Returns:
+      A tuple (xmin, xmax, ymin, ymax) of the bounding box extents.
+  """
   xs, ys = [], []
 
   for path in paths:
@@ -41,15 +61,31 @@ def compute_path_bounding_box(paths: list)-> tuple:
   return min(xs), max(xs), min(ys), max(ys)
 
 def generate_linear_hatch_pattern(polygon: list, spacing: float, angle_degrees: float = 0.0) -> list:
-  
-  # Make sure that there is some (even if minimal) spacing between the lines:
+  """Generate a linear hatch fill pattern clipped to a polygon.
 
+  Produces parallel lines at the given spacing and angle, then clips them
+  to the interior of the polygon. Internally, the polygon is rotated so
+  that horizontal lines can be generated before rotating everything back.
+
+  Args:
+      polygon: The clipping polygon as a list of [x, y] vertices, or a
+          list of such polygons.
+      spacing: Perpendicular distance between adjacent hatch lines in mm.
+          Must be greater than 0.
+      angle_degrees: Angle of the hatch lines in degrees, measured
+          counter-clockwise from the horizontal. Defaults to 0.0
+          (horizontal lines).
+
+  Returns:
+      A list of clipped polylines (each a list of (x, y) tuples)
+      representing the hatch pattern inside the polygon.
+
+  Raises:
+      ValueError: If ``spacing`` is less than or equal to 0.
+  """
   if spacing <= 0:
     raise ValueError("The spacing value for the linear hatch pattern must be greater than 0.")
-  
-  """
-  Normalize to a list of paths so errors with the AddPaths() function are avoided.
-  """
+
   clip_paths = _ensure_paths(polygon)
   if not clip_paths:
     return []
@@ -60,9 +96,6 @@ def generate_linear_hatch_pattern(polygon: list, spacing: float, angle_degrees: 
 
   xmin, xmax, ymin, ymax = compute_path_bounding_box(rotated_paths)
   
-  """
-  Generate horizontal lines at the specified spacing.
-  """
   margin = spacing * 2
   y = ymin - margin 
   hatch_lines = []
@@ -85,10 +118,24 @@ def generate_linear_hatch_pattern(polygon: list, spacing: float, angle_degrees: 
 
 def generate_spiral_pattern(polygon: list, a: float = 0.0, b: float = 0.1,
                     max_turns: float = 20, points_per_turn: int = 200) -> list:
-    """
-    r = a + b*θ  clipped to polygon.
-    a : starting radius offset
-    b : radial gap per radian
+    """Generate an Archimedean spiral fill pattern clipped to a polygon.
+
+    The spiral follows r = a + b * θ, centred on the polygon's bounding box,
+    and is clipped to the polygon interior.
+
+    Args:
+        polygon: The clipping polygon as a list of [x, y] vertices, or a
+            list of such polygons.
+        a: Starting radius offset in mm. Defaults to 0.0.
+        b: Radial gap per radian in mm (controls line density). Defaults to 0.1.
+        max_turns: Maximum number of full revolutions before the spiral is
+            cut off. Defaults to 20.
+        points_per_turn: Number of line segments per full revolution. Higher
+            values yield a smoother curve. Defaults to 200.
+
+    Returns:
+        A list of clipped polylines (each a list of (x, y) tuples)
+        representing the spiral inside the polygon.
     """
     clip_paths = _ensure_paths(polygon)
     if not clip_paths:
@@ -127,10 +174,21 @@ def generate_spiral_pattern(polygon: list, a: float = 0.0, b: float = 0.1,
     return _scale_from_clipper(pyclipper.OpenPathsFromPolyTree(solution))
 
 def generate_honeycomb_pattern(polygon: list, cell_size: float) -> list:
-    """
-    Hexagonal grid clipped to polygon.
-    Horizontal spacing  = cell_size
-    Vertical spacing    = cell_size * sqrt(3) / 2
+    """Generate a hexagonal (honeycomb) fill pattern clipped to a polygon.
+
+    Builds a hexagonal grid that covers the polygon's bounding box, then
+    clips it to the polygon interior.
+
+    Args:
+        polygon: The clipping polygon as a list of [x, y] vertices, or a
+            list of such polygons.
+        cell_size: Side length of each hexagonal cell in mm. Controls the
+            horizontal spacing (= cell_size) and row height
+            (= cell_size * √3 / 2).
+
+    Returns:
+        A list of clipped polylines (each a list of (x, y) tuples)
+        representing the honeycomb pattern inside the polygon.
     """
     clip_paths = _ensure_paths(polygon)
     if not clip_paths:

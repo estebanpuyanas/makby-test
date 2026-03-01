@@ -6,12 +6,20 @@ debugging and understanding the result of polygon operations.
 import matplotlib.pyplot as plt
 import numpy as np
 
-"""
-Args:
-1. Polygons: Dictionary of polygons. The keys are polygon names and the values are lists of (x, y) tuples 
-representing the vertices of the polygons.  
-"""
-def visualize_polygons(polygons_dict: dict, title="Exercise 1 polygon visualization") -> None:
+def visualize_polygons(polygons_dict: dict, title: str = "Exercise 1 polygon visualization") -> None:
+  """Render raw polygon outlines in a grid of matplotlib subplots.
+
+  Creates one subplot per entry in ``polygons_dict``, drawing each polygon
+  as a closed, lightly filled line. Useful for debugging polygon operations
+  before applying fill patterns.
+
+  Args:
+      polygons_dict: Dictionary whose keys are display names and whose values
+          are either a single polygon (list of (x, y) vertices) or a list of
+          such polygons to overlay in the same subplot.
+      title: Overall figure title displayed above all subplots. Defaults to
+          ``"Exercise 1 polygon visualization"``.
+  """
   num_plots = len(polygons_dict)
   fig, axes = plt.subplots(1, num_plots, figsize=(5 * num_plots, 5))
   
