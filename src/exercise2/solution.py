@@ -5,16 +5,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D # Matplotlib utility for 3d rendering.
 
 import numpy as np
 
 from utils.patterns import (
   generate_linear_hatch_pattern,
-)
-
-from utils.polygon_operations import (
-  clip_open_paths,
 )
 
 from utils.mappings import (
