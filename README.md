@@ -4,6 +4,8 @@ This is my solution to the software engineering exercises for Makby's software e
 
 ## Setting up the environment:
 
+**TL;DR <br/>1. Set project Python version to 3.12.12.<br/> 2. Create virtual enviornment with Python's `python3 -m venv .venv`.<br/> 3.Activate virtual enviornment with `source .venv/bin/activate`.<br/> 4. Install dependencies via `pip install -r requirements.txt`<br> 5. Run the solution files for exercises 1 or 2 with `python3 -m src.exerciseN.solution`, just replace exerciseN with exercise1 or exercise2**
+
 > [!NOTE]
 > Before setting up the dependencies for the project please make sure you have the following base dependencies installed: <br/>
 > [pip - A python package manager](https://pypi.org/project/pip/) <br/>
