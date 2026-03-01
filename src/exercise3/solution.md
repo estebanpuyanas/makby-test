@@ -86,5 +86,3 @@ Therefore, a depth-dependent architecture for the biomodel can ensure:
 [^4] [Journal of Biomedical Materials Research](https://onlinelibrary.wiley.com/doi/10.1002/jbm.a.37478)
 
 [^5] [Nature.com: Permeability of Articular Caritlage](https://www.nature.com/articles/2191260a0)
-
-# Notes
