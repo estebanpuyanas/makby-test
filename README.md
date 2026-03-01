@@ -4,7 +4,7 @@ This is my solution to the software engineering exercises for Makby's software e
 
 ## Setting up the environment:
 
-**TL;DR <br/>1. Set project Python version to 3.12.12.<br/> 2. Create virtual enviornment with Python's `python3 -m venv .venv`.<br/> 3.Activate virtual enviornment with `source .venv/bin/activate`.<br/> 4. Install dependencies via `pip install -r requirements.txt`<br> 5. Run the solution files for exercises 1 or 2 with `python3 -m src.exerciseN.solution`, just replace exerciseN with exercise1 or exercise2.<br/> 6. _(Optional)_ Launch the web viewer with `python3 webviewer/app.py` and open [http://localhost:5000](http://localhost:5000) to browse all exercise results interactively.**
+**TL;DR <br/>1. Set project Python version to 3.12.12.<br/> 2. Create virtual environment with Python's `python3 -m venv .venv`.<br/> 3.Activate virtual environment with `source .venv/bin/activate`.<br/> 4. Install dependencies via `pip install -r requirements.txt`<br> 5. Run the solution files for exercises 1 or 2 with `python3 -m src.exerciseN.solution`, just replace exerciseN with exercise1 or exercise2.<br/> 6. _(Optional)_ Launch the web viewer with `python3 webviewer/app.py` and open [http://localhost:5000](http://localhost:5000) to browse all exercise results interactively.**
 
 > [!NOTE]
 > Before setting up the dependencies for the project please make sure you have the following base dependencies installed: <br/>
@@ -13,11 +13,11 @@ This is my solution to the software engineering exercises for Makby's software e
 > [make - a UNIX program compilation utility](https://www.gnu.org/software/make/manual/make.html) **this one is optional** <br/>
 > [Brew - a package manager for MacOS](https://brew.sh/) **Optional and only for MacOS users** <br/>
 
-**Additionally, please note that the guide assumes that the user is in a Linux/UNIX enviornment like any Linux distribution such as Ubuntu, Fedora, and ArchLinux, or MacOS. If the user is using Windows, the structure of the commands below will change, and certain dependencies, like pyenv, [will require different installations](https://github.com/pyenv/pyenv?tab=readme-ov-file#windows).**
+**Additionally, please note that the guide assumes that the user is in a Linux/UNIX environment like any Linux distribution such as Ubuntu, Fedora, and ArchLinux, or MacOS. If the user is using Windows, the structure of the commands below will change, and certain dependencies, like pyenv, [will require different installations](https://github.com/pyenv/pyenv?tab=readme-ov-file#windows).**
 
 ### Using `make`:
 
-The repository includes a [`Makefile`](/makby-test/Makefile) which can easily install the necessary dependencies and setup the development enviornment to run the project. [MacOS users will need to install make through brew or XCode](https://formulae.brew.sh/formula/make). Once `make` is installed, run the following command:
+The repository includes a [`Makefile`](/makby-test/Makefile) which can easily install the necessary dependencies and setup the development environment to run the project. [MacOS users will need to install make through brew or XCode](https://formulae.brew.sh/formula/make). Once `make` is installed, run the following command:
 
 ```make
 make help # lists all available commands
@@ -47,7 +47,7 @@ Python scientific libraries like `numpy`, `pyclipper`, and `matplotlib` often ru
 pyenv local 3.12.12
 ```
 
-That should create a [`.python-version` file](/makby-test/.python-version), check it an ensure it rtegistered the correct version. You can also run:
+That should create a [`.python-version` file](/makby-test/.python-version), check it an ensure it registered the correct version. You can also run:
 
 ```sh
 python3 --version
@@ -55,9 +55,9 @@ python3 --version
 
 To check that the correct version was set.
 
-#### Setting up a virtual enviornment:
+#### Setting up a virtual environment:
 
-Virtual environments are used in Python to avoid global package installations and version collisions. To create a vritual envrionment, run the following command:
+Virtual environments are used in Python to avoid global package installations and version collisions. To create a virtual environment, run the following command:
 
 ```sh
 python3 -m venv .venv
@@ -71,7 +71,7 @@ source .venv/bin/activate
 
 #### Installing dependencies:
 
-Now that the virtual enviornment has been created, we can install the project dependencies with one simple command:
+Now that the virtual environment has been created, we can install the project dependencies with one simple command:
 
 ```sh
 pip install -r requirements.txt
@@ -128,7 +128,6 @@ Then open [http://localhost:5000](http://localhost:5000) in your browser. Press 
 2. https://sourceforge.net/p/easycnc/wiki/G-Code/
 3. https://linuxcnc.org/docs/html/gcode/g-code.html
 
-## Stuff to work on (besides the exercises):
+## Usage of AI:
 
-1. Generating good pydocs / readmes for each function and file/folders
-2. Tests (?)
+The [`utils/` folder](/src/utils/README.md), the [webviewer](/webviewer/README.md), and the [solution document](/src/exercise3/solution.md) for the 3rd exercise all contain notes on the usage of AI throughout the project, as per the guidelines.
