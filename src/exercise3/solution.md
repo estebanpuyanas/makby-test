@@ -71,7 +71,7 @@ Therefore, a depth-dependent architecture for the biomodel can ensure:
 
 ## Questions to cross-functional teams:
 
-1. It seems like measuring the Young's Modulus of the different zones of articular cartilage does not provide sufficient information about the quality of the cartilage[^4]. What would be a more holistic way of testing the different zones of the cartilage and how can those tests translate to the architecture and performance of the proposed biomodel?
+1. It seems like measuring the Young's Modulus of the different zones of articular cartilage does not provide sufficient information about the quality of the cartilage.[^4] What would be a more holistic way of testing the different zones of the cartilage and how can those tests translate to the architecture and performance of the proposed biomodel?
 
 # Conclusion
 
@@ -81,8 +81,8 @@ Therefore, a depth-dependent architecture for the biomodel can ensure:
 
 [^2]: [Nature.com: Optimized gradient of lyophilized platelet-rich plasma in biomimetic 3D-printed triphasic scaffold based on alginate and gelatin for osteochondral tissue engineering](https://www.nature.com/articles/s41598-026-37615-7)
 
-[^3] [Elsevier: Strong Fiber-reinforced Hyrogel](https://www.sciencedirect.com/science/article/abs/pii/S1742706112004886)
+[^3]: [Elsevier: Strong Fiber-reinforced Hyrogel](https://www.sciencedirect.com/science/article/abs/pii/S1742706112004886)
 
-[^4] [Journal of Biomedical Materials Research](https://onlinelibrary.wiley.com/doi/10.1002/jbm.a.37478)
+[^4]: [Journal of Biomedical Materials Research](https://onlinelibrary.wiley.com/doi/10.1002/jbm.a.37478)
 
-[^5] [Nature.com: Permeability of Articular Caritlage](https://www.nature.com/articles/2191260a0)
+[^5]: [Nature.com: Permeability of Articular Caritlage](https://www.nature.com/articles/2191260a0)
