@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block title %}Exercise 3 — makby-test{% endblock %}
+{% block content %}
+
+<h1>Exercise 3: 3D Biomodel Proposal</h1>
+<p style="color: #555; margin: 0.4rem 0 0.8rem">
+  Design proposal for an articular cartilage biomodel.
+</p>
+
+<div class="btn-row" style="margin-bottom: 1.2rem">
+  <a class="btn btn-secondary" href="/ex3/print" target="_blank"
+    >View as PDF / Print</a
+  >
+</div>
+
+<!-- Rendered Markdown -->
+<div class="card" style="line-height: 1.7">
+  <style>
+    /* Markdown content styling */
+    .md-body h1 {
+      font-size: 1.6rem;
+      margin: 1.2rem 0 0.4rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+    .md-body h2 {
+      font-size: 1.25rem;
+      margin: 1.2rem 0 0.3rem;
+    }
+    .md-body h3 {
+      font-size: 1.05rem;
+      margin: 1rem 0 0.2rem;
+      color: #444;
+    }
+    .md-body p {
+      margin: 0.5rem 0;
+    }
+    .md-body ul,
+    .md-body ol {
+      margin: 0.4rem 0 0.4rem 1.5rem;
+    }
+    .md-body li {
+      margin: 0.2rem 0;
+    }
+    .md-body a {
+      color: #89b4fa;
+    }
+    .md-body sup {
+      font-size: 0.75rem;
+    }
+    .md-body .footnote {
+      font-size: 0.82rem;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 1.5rem;
+      padding-top: 0.5rem;
+    }
+    .md-body blockquote {
+      border-left: 3px solid #89b4fa;
+      padding-left: 0.8rem;
+      color: #555;
+      margin: 0.5rem 0;
+    }
+  </style>
+  <div class="md-body">{{ md_html|safe }}</div>
+</div>
+
+<!-- Exercise navigation -->
+<div class="nav-ex">
+  <a href="/exercise/2">&#8592; Exercise 2</a>
+  <a href="/">Home</a>
+</div>
+
+{% endblock %}

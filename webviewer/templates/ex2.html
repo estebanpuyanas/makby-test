@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Exercise 2 — makby-test{% endblock %}
+{% block content %}
+
+<h1>Exercise 2: Spatial Mappings</h1>
+<p style="color: #555; margin: 0.4rem 0 1.2rem">
+  A flat rectilinear hatch pattern mapped to a 2D ring and a 3D cylinder
+  surface.
+</p>
+
+<!-- Plot -->
+<div class="card">
+  <h2 style="margin-top: 0">Plot</h2>
+  <p class="spinner" id="plot2-loading">Generating plot&hellip;</p>
+  <img
+    class="plot"
+    id="plot2-img"
+    src="/plot/2.png"
+    alt="Exercise 2 plot"
+    style="display: none"
+    onload="plotLoaded('plot2')"
+    onerror="plotError('plot2')"
+  />
+</div>
+
+<!-- Exercise navigation -->
+<div class="nav-ex">
+  <a href="/exercise/1">&#8592; Exercise 1</a>
+  <a href="/">Home</a>
+  <a href="/exercise/3">Exercise 3 &#8594;</a>
+</div>
+
+<script>
+  function plotLoaded(id) {
+    document.getElementById(id + "-loading").style.display = "none";
+    document.getElementById(id + "-img").style.display = "block";
+  }
+  function plotError(id) {
+    document.getElementById(id + "-loading").textContent =
+      "Failed to load plot.";
+  }
+</script>
+
+{% endblock %}

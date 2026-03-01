@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}makby-test{% endblock %}</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #f5f5f5;
+        color: #1a1a1a;
+        min-height: 100vh;
+      }
+
+      header {
+        background: #1e1e2e;
+        color: #cdd6f4;
+        padding: 0.75rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        border-bottom: 2px solid #313244;
+      }
+      header a {
+        color: #89b4fa;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      header a:hover {
+        color: #cba6f7;
+      }
+      header nav {
+        display: flex;
+        gap: 1rem;
+        margin-left: auto;
+      }
+      header nav a {
+        font-size: 0.9rem;
+        color: #a6e3a1;
+      }
+      header nav a:hover {
+        color: #94e2d5;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+        margin: 1.5rem 0 0.5rem;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.45rem 1rem;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .btn:hover {
+        opacity: 0.85;
+      }
+      .btn-primary {
+        background: #89b4fa;
+        color: #1e1e2e;
+      }
+      .btn-secondary {
+        background: #313244;
+        color: #cdd6f4;
+      }
+      .btn-green {
+        background: #a6e3a1;
+        color: #1e1e2e;
+      }
+      .btn-row {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        margin-top: 0.8rem;
+      }
+
+      .nav-ex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 1rem;
+      }
+      .nav-ex a {
+        color: #89b4fa;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .nav-ex a:hover {
+        text-decoration: underline;
+      }
+
+      pre {
+        background: #1e1e2e;
+        color: #cdd6f4;
+        padding: 1rem;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        max-height: 420px;
+        overflow-y: auto;
+      }
+
+      img.plot {
+        max-width: 100%;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+      }
+      .spinner {
+        color: #888;
+        font-style: italic;
+        padding: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/">Makby Software Engineering Technical Assessment</a>
+      <nav>
+        <a href="/exercise/1">Exercise 1</a>
+        <a href="/exercise/2">Exercise 2</a>
+        <a href="/exercise/3">Exercise 3</a>
+      </nav>
+    </header>
+    <main>{% block content %}{% endblock %}</main>
+  </body>
+</html>

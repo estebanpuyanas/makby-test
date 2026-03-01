@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% block title %}Home — makby-test{% endblock %} {%
+block content %}
+<h1>Makby Software Engineering Test: Esteban Puyana Salazar Solutions</h1>
+<p style="color: #555; margin: 0.5rem 0 1.5rem">
+  Click an exercise below to view its code, plots, or write-up.
+</p>
+
+<div class="card" style="display: flex; flex-direction: column; gap: 1rem">
+  <a href="/exercise/1" style="text-decoration: none; color: inherit">
+    <div
+      style="
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.2rem;
+        transition: border-color 0.2s;
+        cursor: pointer;
+      "
+      onmouseover="this.style.borderColor = '#89b4fa'"
+      onmouseout="this.style.borderColor = '#e0e0e0'"
+    >
+      <h2 style="margin: 0 0 0.4rem">
+        Exercise 1: Pattern Regions &amp; G-code Export
+      </h2>
+      <p style="color: #555; font-size: 0.9rem">
+        Polygon intersections, fill patterns (hatch, honeycomb, spiral), and
+        G-code generation.
+      </p>
+    </div>
+  </a>
+
+  <a href="/exercise/2" style="text-decoration: none; color: inherit">
+    <div
+      style="
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.2rem;
+        transition: border-color 0.2s;
+        cursor: pointer;
+      "
+      onmouseover="this.style.borderColor = '#89b4fa'"
+      onmouseout="this.style.borderColor = '#e0e0e0'"
+    >
+      <h2 style="margin: 0 0 0.4rem">Exercise 2: 2D to 3D Spatial Mappings</h2>
+      <p style="color: #555; font-size: 0.9rem">
+        Flat rectilinear pattern mapped to a 2D ring and a 3D cylinder.
+      </p>
+    </div>
+  </a>
+
+  <a href="/exercise/3" style="text-decoration: none; color: inherit">
+    <div
+      style="
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.2rem;
+        transition: border-color 0.2s;
+        cursor: pointer;
+      "
+      onmouseover="this.style.borderColor = '#89b4fa'"
+      onmouseout="this.style.borderColor = '#e0e0e0'"
+    >
+      <h2 style="margin: 0 0 0.4rem">Exercise 3: 3D Biomodel Proposal</h2>
+      <p style="color: #555; font-size: 0.9rem">
+        Proposal for a triphasic gradient articular cartilage biomodel.
+      </p>
+    </div>
+  </a>
+</div>
+{% endblock %}

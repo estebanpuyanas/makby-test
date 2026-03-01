@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block title %}Exercise 1 — makby-test{% endblock %}
+{% block content %}
+
+<h1>Exercise 1: Pattern Regions &amp; G-code</h1>
+<p style="color: #555; margin: 0.4rem 0 1.2rem">
+  Polygon intersections of Rect1, Rect2 and Triangle, each region filled with a
+  distinct pattern, then exported as G-code.
+</p>
+
+<!-- Plot -->
+<div class="card">
+  <h2 style="margin-top: 0">Plot</h2>
+  <p class="spinner" id="plot1-loading">Generating plot&hellip;</p>
+  <img
+    class="plot"
+    id="plot1-img"
+    src="/plot/1.png"
+    alt="Exercise 1 plot"
+    style="display: none"
+    onload="plotLoaded('plot1')"
+    onerror="plotError('plot1')"
+  />
+</div>
+
+<!-- G-code viewer -->
+<div class="card">
+  <h2 style="margin-top: 0">G-code File</h2>
+  <p style="color: #555; font-size: 0.88rem; margin-bottom: 0.7rem">
+    Showing first {{ preview_lines }} of {{ gcode_total }} lines.
+  </p>
+  <pre id="gcode-block">{{ gcode_preview }}</pre>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" id="expand-btn" onclick="expandGcode()">
+      Load all lines
+    </button>
+    <a class="btn btn-secondary" href="/gcode/download">Download .gcode</a>
+  </div>
+</div>
+
+<!-- Exercise navigation -->
+<div class="nav-ex">
+  <a href="/">&#8592; Home</a>
+  <a href="/exercise/2">Exercise 2 &#8594;</a>
+</div>
+
+<script>
+  function plotLoaded(id) {
+    document.getElementById(id + "-loading").style.display = "none";
+    document.getElementById(id + "-img").style.display = "block";
+  }
+  function plotError(id) {
+    document.getElementById(id + "-loading").textContent =
+      "Failed to load plot.";
+  }
+
+  let expanded = false;
+  let originalPreview = null;
+
+  async function expandGcode() {
+    if (expanded) return;
+    const pre = document.getElementById("gcode-block");
+    if (originalPreview === null) originalPreview = pre.textContent;
+    const btn = document.getElementById("expand-btn");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+    const resp = await fetch("/gcode/full");
+    const text = await resp.text();
+    pre.textContent = text;
+    btn.textContent = "Collapse";
+    btn.disabled = false;
+    expanded = true;
+    btn.onclick = collapseGcode;
+  }
+
+  function collapseGcode() {
+    document.getElementById("gcode-block").textContent = originalPreview;
+    const btn = document.getElementById("expand-btn");
+    btn.textContent = "Load all lines";
+    btn.onclick = expandGcode;
+    expanded = false;
+  }
+</script>
+
+{% endblock %}

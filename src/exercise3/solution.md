@@ -145,11 +145,34 @@ The following steps can be taken to prevent delamination during the printing pro
 
 - Comparison to human cartilage stress-strain curves.
 
+## Teams/Professionals to Validate Components of the Proposal with:
+
+### To Validate the Biomodel:
+
+- It would be useful to get the input of biomechanical engineers since they could provide guidance on performing accurate mechanical and computational validation.
+
+- Similarly, confering with orthopedic surgeons would allow us to understand and validate the physiological relevance of the model.
+- Materials scientists would be a core part of the model validation process as they could provide insights towards optimizing hydrogel and fiber properties.
+
+- Additive manufacturing specialists would also provide valuable insights for optimizing printing fidelity throughout the entire process.
+
 ## Questions to cross-functional teams:
 
 1. It seems like measuring the Young's Modulus of the different zones of articular cartilage does not provide sufficient information about the quality of the cartilage.[^4] What would be a more holistic way of testing the different zones of the cartilage and how can those tests translate to the architecture and performance of the proposed biomodel?
 
-# Conclusion
+# Conclusion:
+
+This triphasic, gradient-engineered biomodel replicates:
+
+- Structural anisotropy.
+
+- Depth-dependent mechanical stiffness.
+
+- Permeability gradients.
+
+- Functional load distribution behavior.
+
+Through multi-material additive manufacturing and interfacial gradient design, the model avoids delamination while closely approximating native cartilage biomechanics. The approach enables both research applications and translational potential for cartilage repair strategies.
 
 # Sources:
 
