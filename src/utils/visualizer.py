@@ -45,5 +45,4 @@ def visualize_polygons(polygons_dict: dict, title: str = "Exercise 1 polygon vis
     ax.set_title(name)
 
   plt.suptitle(title)
-  #plt.tight_layout()
   plt.show()

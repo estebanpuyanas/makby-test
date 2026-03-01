@@ -3,7 +3,10 @@ G-code exporter.
 Converts toolpath segments (lists of (x, y) points) into G-code moves.
 
 Coordinate unit assumption: mm.
+
+NOTE: THIS FILE WAS ENTIRELY GENERATED USING AI. PLEASE REVIEW utils/README.md for a more detailed explenation.
 """
+
 def _header(feed_rate: int) -> list[str]:
     """Generate the G-code preamble lines.
 
@@ -23,7 +26,6 @@ def _header(feed_rate: int) -> list[str]:
         "G0 Z5.0   ; lift pen/tool",
     ]
 
-
 def _footer() -> list[str]:
     """Generate the G-code closing lines.
 
@@ -38,7 +40,6 @@ def _footer() -> list[str]:
         "G0 X0 Y0  ; return to origin",
         "M2        ; end program",
     ]
-
 
 def paths_to_gcode(
     all_paths: list[list[list[tuple]]],

@@ -3,7 +3,6 @@ import pyclipper
 CLIPPER_SCALE = 1_000_000
 pc = pyclipper.Pyclipper()
 
-
 def _ensure_paths(polygon: list) -> list:
   """Normalize input into a list of paths (list of polylines).
 

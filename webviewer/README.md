@@ -1,0 +1,7 @@
+# Webviewer
+
+Despite the exercise submission guidelines stating that only the code for each exercise and the write ups were needed for submission, I wanted to create a more interactive and visually appealing way of viewing all the plots and shapes generated for each exercise (plus nobody likes reading raw markdown). This part of the repository generates a static web server listening on port 5000 and can be activated to view each exercise in `localhost:5000`. See [the root README](/README.md) for more information on running the server.
+
+Since this was not a core requirement of the exercise, it has been entirely coded with AI, which is why you will see that files like (`base.html`)[/webviewer/base.html] are just a jumble of HTML + CSS. While not pretty it works and I think it makes for a more pleasant way of reviewing the submission.
+
+**Prompt given to AI:<br/> Create a simple html webviewer that runs in a localhost to display the results of my work. The home page should contain links to each exercise and each exercise page should contain a link to the next/previous exercise and the home page. For the exercise 1 page I want to be able to render the plot of the shapes + the gcode file in markdown (since its very large just show a few lines and have option to expand or download). For exercise 2 show the plot, and for exercise 3 show the markdown file and also hhave the option to display it as pdf and download it. Do this in the simplest manner possible**
